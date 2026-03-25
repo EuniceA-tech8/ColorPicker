@@ -24,25 +24,31 @@ struct ContentView: View {
                 .border(Color.black)
                 .shadow(radius: 10)
             
+            Text("Intensity:    Red: \(Int(redAmount) * 100 / 255), Blue: \(Int(blueAmount * 100 / 255)), Green: \(Int(greenAmount) * 100 / 255)")
+            
+            Slider(value: $redAmount, in: 0...255)
+                .tint(.red)
+            Slider(value: $blueAmount, in: 0...255)
+                .tint(.blue)
+            Slider(value: $greenAmount, in: 0...255)
+                .tint(.green)
+            
             //Text("Toggle Color")
-            Toggle("Activate Color", isOn: $redIsOn)
+            Toggle("Activate Red", isOn: $redIsOn)
                 .foregroundColor(redIsOn ? .red : .primary)
             //Text("Toggle Color")
-            Toggle("Activate Color", isOn: $blueIsOn)
+            Toggle("Activate Blue", isOn: $blueIsOn)
                 .foregroundColor(blueIsOn ? .blue : .primary)
-            Toggle("Activate Color", isOn: $blueIsOn)
+            Toggle("Activate Green", isOn: $blueIsOn)
             //Text("Toggle Color")
                 .foregroundColor(greenIsOn ? .green : .primary)
             
-    }
-        
-        
+    }  
+        .padding()
     }
     
 }
     
-
-
 
 #Preview {
     ContentView()
